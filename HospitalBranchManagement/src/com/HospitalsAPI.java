@@ -96,6 +96,9 @@ public class HospitalsAPI extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Map paras = getParasMap(request);
+		 String output = hospitalObj.deleteBranch(paras.get("hosID").toString());
+		response.getWriter().write(output); 
 	}
 
 }
