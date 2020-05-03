@@ -79,6 +79,16 @@ public class HospitalsAPI extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Map paras = getParasMap(request);
+		 String output = hospitalObj.updateBranch(paras.get("hidhosIDSave").toString(),
+		 paras.get("hosRegno").toString(),
+		 paras.get("hosname").toString(),
+		paras.get("hostype").toString(),
+		paras.get("hosCharge").toString(),
+		paras.get("Address").toString(),
+		paras.get("city").toString(),
+		paras.get("Email").toString());
+		response.getWriter().write(output); 
 	}
 
 	/**
