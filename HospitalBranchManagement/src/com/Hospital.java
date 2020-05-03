@@ -2,6 +2,7 @@ package com;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -68,5 +69,36 @@ public class Hospital {
 		}
 		return output;
 	}
-
+	public String insertBranch(String hosRegno, String hosname,String hostype, String hosCharge, String Address,String city,String Email) {
+		String output = "";
+		try {
+			Connection con = connect();
+			if (con == null) {
+				return "Error while connecting to the database for inserting.";
+			}
+			// create a prepared statement
+			String query = " insert into hospital(hosID, hosRegno, hosname, hostype, hosCharge,Address,city,Email)"
+					+ " values (?, ?, ?, ?, ?)";
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			// binding values
+			preparedStmt.setInt(1, 0);
+			preparedStmt.setString(2, hosRegno);
+			preparedStmt.setString(3, hosname);
+			preparedStmt.setString(4, hostype);
+			preparedStmt.setDouble(5, Double.parseDouble(hosCharge));
+			preparedStmt.setString(6, Address);
+			preparedStmt.setString(7, city);
+			preparedStmt.setString(8, Email);
+			
+			// execute the statement
+			preparedStmt.execute();
+			con.close();
+			String newHospitals = readBranch();
+			output = "{\"status\":\"success\", \"data\": \"" + newHospitals + "\"}";
+		} catch (Exception e) {
+			output = "{\"status\":\"error\", \"data\":\"Error while inserting the Branch.\"}";
+			System.err.println(e.getMessage());
+		}
+		return output;
+	}
 }
