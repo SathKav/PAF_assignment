@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/HospitalsAPI")
 public class HospitalsAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	Hospital hospitalObj=new Hospital();
     /**
      * @see HttpServlet#HttpServlet()
      */

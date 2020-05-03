@@ -150,7 +150,7 @@ public class Hospital {
 			String newHospitals = readBranch();
 			output = "{\"status\":\"success\", \"data\": \"" + newHospitals + "\"}";
 		} catch (Exception e) {
-			output = "{\"status\":\"error\", \"data\":\"Error while deleting the item.\"}";
+			output = "{\"status\":\"error\", \"data\":\"Error while deleting the Branch.\"}";
 			System.err.println(e.getMessage());
 		}
 		return output;
