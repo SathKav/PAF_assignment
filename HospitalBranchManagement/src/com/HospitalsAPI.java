@@ -81,13 +81,13 @@ public class HospitalsAPI extends HttpServlet {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request);
 		 String output = hospitalObj.updateBranch(paras.get("hidhosIDSave").toString(),
-		 paras.get("hosRegno").toString(),
-		 paras.get("hosname").toString(),
-		paras.get("hostype").toString(),
-		paras.get("hosCharge").toString(),
-		paras.get("Address").toString(),
-		paras.get("city").toString(),
-		paras.get("Email").toString());
+		 paras.get("hosRegno").toString().replace('+', ' '),
+		 paras.get("hosname").toString().replace('+', ' '),
+		paras.get("hostype").toString().replace('+', ' '),
+		paras.get("hosCharge").toString().replace('+', ' '),
+		paras.get("Address").toString().replace("+", " "),
+		paras.get("city").toString().replace('+', ' '),
+		paras.get("Email").toString().replace("%40", "@"));
 		response.getWriter().write(output); 
 	}
 
