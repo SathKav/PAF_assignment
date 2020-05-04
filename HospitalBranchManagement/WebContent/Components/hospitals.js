@@ -152,3 +152,22 @@ $(document).on("click", ".btnUpdate", function(event) {
 	
 	
 });
+
+
+//DELETE==========================================
+
+$(document).on("click", ".btnRemove", function(event) {  
+	
+	$.ajax(  {   
+		
+		url : "HospitalsAPI",   
+		type : "DELETE",   
+		data : "hosID=" + $(this).data("hosid"),   
+		dataType : "text",   
+		complete : function(response, status)   {    
+			onHospitalDeleteComplete(response.responseText, status);   
+			
+		}  
+	}); 
+	
+}); 
