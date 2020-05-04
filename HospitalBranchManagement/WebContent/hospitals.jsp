@@ -14,7 +14,7 @@ pageEncoding="ISO-8859-1"%>
 <div class="container">
 <div class="row">
 <div class="col-6">
-<h1>Hospital Branch Management V10.1</h1>
+<h1>Hospital Branch Management</h1>
 <form id="formHospital" name="formHospital">
 
  Hospital Register No:

@@ -78,7 +78,7 @@ public class Hospital {
 			}
 			// create a prepared statement
 			String query = " insert into hospital(hosID, hosRegno, hosname, hostype, hosCharge,Address,city,Email)"
-					+ " values (?, ?, ?, ?, ?)";
+					+ " values (?,?,?,?,?,?,?,?)";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
 			preparedStmt.setInt(1, 0);
