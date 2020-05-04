@@ -78,3 +78,62 @@ function onHospitalSaveComplete(response, status) {
 	} 
 
 	$("#hidItemIDSave").val("");  $("#formItem")[0].reset(); } 
+
+//INSERT ============================================ 
+function validateItemForm() {  
+	
+	// REGNO  
+	if ($("#hosRegno").val().trim() == "")  {   
+		return "Insert Hospital registered NO.";  
+		
+	} 
+	 
+	 // NAME  
+	if ($("#hosname").val().trim() == "")  {   
+		return "Insert Hospital Name.";  
+		
+	} 
+	
+	// TYPE  
+	if ($("#hostype").val().trim() == "")  {   
+		return "Insert Hospital Type.";  
+		
+	} 
+	 
+	 // HOSPITAL CHARGE-------------------------------  
+	if ($("#hosCharge").val().trim() == "")  {   
+		return "Insert Hospital Charge.";  
+		
+	} 
+	 
+	 // is numerical value  
+	var tmpPrice = $("#hosCharge").val().trim();  
+	if (!$.isNumeric(tmpPrice))  {   
+		return "Insert a numerical value for Hospital Charge.";  
+		
+	} 
+	 
+	 // convert to decimal price  
+	$("#hosCharge").val(parseFloat(tmpPrice).toFixed(2)); 
+	
+	 
+	 // ADDRESS------------------------  
+	if ($("#Address").val().trim() == "")  {   
+		return "Insert Address.";  
+		
+	} 
+	// CITY------------------------  
+	if ($("#city").val().trim() == "")  {   
+		return "Insert City.";  
+		
+	} 
+	
+	// EMAIL------------------------  
+	if ($("#Email").val().trim() == "")  {   
+		return "Insert Email address.";  
+		
+	} 
+	 
+	 return true; 
+	 
+}
