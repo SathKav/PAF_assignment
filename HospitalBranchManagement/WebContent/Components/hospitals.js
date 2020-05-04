@@ -77,7 +77,7 @@ function onHospitalSaveComplete(response, status) {
 		
 	} 
 
-	$("#hidItemIDSave").val("");  $("#formItem")[0].reset(); } 
+	$("#hidhosIDSave").val("");  $("#formHospital")[0].reset(); } 
 
 //INSERT ============================================ 
 function validateItemForm() {  
@@ -137,3 +137,18 @@ function validateItemForm() {
 	 return true; 
 	 
 }
+
+//UPDATE========================================== 
+$(document).on("click", ".btnUpdate", function(event) {     
+	
+	$("#hidhosIDSave").val($(this).closest("tr").find('#hidhosIDUpdate').val());     
+	$("#hosRegno").val($(this).closest("tr").find('td:eq(0)').text());    
+	$("#hosname").val($(this).closest("tr").find('td:eq(1)').text());     
+	$("#hostype").val($(this).closest("tr").find('td:eq(2)').text());     
+	$("#hosCharge").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#Address").val($(this).closest("tr").find('td:eq(4)').text());
+	$("#city").val($(this).closest("tr").find('td:eq(5)').text());
+	$("#Email").val($(this).closest("tr").find('td:eq(6)').text());
+	
+	
+});
