@@ -1,0 +1,22 @@
+use paf_ca;
+ create table hospital
+(
+hosID int(11) primary key auto_increment ,
+	hosRegno varchar(10) NOT NULL,
+	hosname varchar(10) NOT NULL,
+	hostype varchar(30) NOT NULL,
+    hosCharge decimal(5,2),
+	Address varchar(50) NOT NULL,
+    city varchar(50)NOT NULL,
+    Email varchar(50),
+	
+	CONSTRAINT pk_hosID
+		PRIMARY KEY (hosID),
+		
+	CONSTRAINT ck_hostype
+		CHECK (hostype = 'Acute care' OR hostype = 'Psychiatric' OR hostype='Surgical' OR hostype='Dental'),
+	
+	CONSTRAINT ck_hosCharge
+		CHECK (hosCharge > 0.00)
+    
+);
